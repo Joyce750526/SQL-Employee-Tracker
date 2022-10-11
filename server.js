@@ -1,34 +1,41 @@
-const express = require('express');
-// Import and require mysql2
-const mysql = require('mysql2');
+const mysql = require("mysql2");
+const inquirer = require("inquirer");
+const { default: Choice } = require("inquirer/lib/objects/choice");
 
-const PORT = process.env.PORT || 3001;
-const app = express();
-
-// Express middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
 // Connect to database
 const db = mysql.createConnection(
   {
-    host: 'localhost',
+    host: "localhost",
     // MySQL username,
-    user: 'root',
+    user: "root",
     // TODO: Add MySQL password here
-    password: '',
-    database: 'department_db'
+    password: "password",
+    database: "department_db",
   },
   console.log(`Connected to the department_db database.`)
 );
 
-
-
-// Default response for any other request (Not Found)
-app.use((req, res) => {
-  res.status(404).end();
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+function startAPP() {
+  inquirer.prompt([
+    {
+      type: "list",
+      name: "userChoice",
+      message: "What would you like to do?",
+      choices: [
+        "View all departments",
+        "View all roles",
+        "View all employees",
+        "Add a department",
+        "Add a role",
+        "Add an employee",
+        "Update an employee role",
+      ],
+    },
+  ])
+  .then((response) => {
+    console.log(response);
+  });
+};
+// Function call to initialize app
+startAPP();
