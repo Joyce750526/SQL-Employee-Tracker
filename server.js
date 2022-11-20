@@ -226,7 +226,7 @@ function updateData() {
     }
   ])
     .then((answers) => {
-      db.query('INSERT INTO role (title, salary, department_id) VALUES (?,?,?)',[answers.title, answers.salary,answers.department_id,], function (err, results) {
+      db.query('INSERT INTO role (',[answers.title, answers.salary,answers.department_id,], function (err, results) {
         console.log(results);
         startAPP();
         if (err) throw err;
