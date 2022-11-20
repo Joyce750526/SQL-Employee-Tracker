@@ -51,7 +51,12 @@ To use this Back-end application. Please refer the following steps.
 
 ## Demo Video:
 
-![ReadMe Generator Walkthrough Video can be found here.](./assets/video/Tasksaver-Walkthrough.gif)
+![ReadMe Generator Walkthrough Video can be found here.]
+
+---
+## Deployed Images:
+
+![Screenshots can be found here.](./assets/screenshots/1.png)
 
 ---
 
@@ -62,11 +67,6 @@ To use this Back-end application. Please refer the following steps.
 - Github URL:
   https://github.com/Joyce750526/tasksaver-note-taker
 
-- Github Deployed Page:
-  https://joyce750526.github.io/tasksaver-note-taker/
-
-- Heroku Deployed Page:
-  https://tasksaver-app.herokuapp.com/
 
 ---
 
