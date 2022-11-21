@@ -166,7 +166,7 @@ function addEmployee() {
     .then((answers) => {
       db.query(
         "INSERT INTO role (title, salary, department_id) VALUES (?,?,?)",
-        [answers.title, answers.salary, answers.department_id],
+        [answers.first_name, answers.last_name, answers.role],
         function (err, results) {
           console.table(results);
           startAPP();
