@@ -129,11 +129,21 @@ function addRole() {
         type: "input",
         message: "Please enter the name of new role!",
       },
+      {
+        name: "newSalary",
+        type: "input",
+        message: "Please enter the salary of new role!",
+      },
+      {
+        name: "newID",
+        type: "input",
+        message: "Please enter the department ID!",
+      },
     ])
     .then((answers) => {
       db.query(
         "INSERT INTO role (title, salary, department_id) VALUES (?,?,?)",
-        [answers.title, answers.salary, answers.department_id],
+        [answers.newRole, answers.newSalary, answers.newID],
         function (err, results) {
           console.table(results);
           startAPP();
@@ -148,25 +158,25 @@ function addEmployee() {
   inquirer
     .prompt([
       {
-        name: "first_name",
+        name: "newName",
         type: "input",
-        message: "Please enter the new employee's first name!",
+        message: "Please enter the new employee's name!",
       },
       {
-        name: "last_name",
+        name: "newSalary",
         type: "input",
-        message: "Please enter the new employee's last name!",
+        message: "Please enter the salary of new role!",
       },
       {
-        name: "role",
+        name: "newID",
         type: "input",
-        message: "Please enter the new employee's role!",
+        message: "Please enter the department ID!",
       },
     ])
     .then((answers) => {
       db.query(
         "INSERT INTO role (title, salary, department_id) VALUES (?,?,?)",
-        [answers.first_name, answers.last_name, answers.role],
+        [answers.newName, answers.newSalary, answers.newID],
         function (err, results) {
           console.table(results);
           startAPP();
@@ -177,13 +187,23 @@ function addEmployee() {
 }
 
 // Update Data in Table
-function updateData() {
+function updateRole() {
   inquirer
     .prompt([
       {
         name: "newRole",
         type: "input",
-        message: "Please enter the name of new department!",
+        message: "Please enter the name of updated role!",
+      },
+      {
+        name: "newSalary",
+        type: "input",
+        message: "Please enter the updated salary of new role!",
+      },
+      {
+        name: "newID",
+        type: "input",
+        message: "Please enter the updated department ID!",
       },
     ])
     .then((answers) => {
