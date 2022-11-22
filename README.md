@@ -64,7 +64,8 @@ To use this Back-end application. Please refer the following steps.
 <br>
 
 **View All Department**
-![View All Department Screenshot.](./assets/screenshots/1-%20view%20all%20department.png)
+![View All Department Screenshot.](./assets/screenshots/1-%20view%20all%20department.png?raw=true "View All Department")
+
 
 <br>
 
