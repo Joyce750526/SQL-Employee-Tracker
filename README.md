@@ -49,26 +49,50 @@ To use this Back-end application. Please refer the following steps.
 
 ---
 
----
 
 ## Demo Video:
 
-![ReadMe Generator Walkthrough Video can be found here.]
+![SQL Employee Tracker Walkthrough Video can be found here.](./assets/video/SQL-%20Employee%20Tracker%20Walkthrough%20Video.gif)
 
 ---
 ## Screenshots:
+<br>
 
-![Screenshots can be found here.](./assets/screenshots/0.png)
+**Get Started Window in the Terminal**
+![Get Started Window Screenshot.](./assets/screenshots/0-get%20started%20window.png)
 
-![View Department Screenshots can be found here.](./assets/screenshots/1-%20view%20all%20department.png)
+<br>
 
-![View All Role Screenshots can be found here.](./assets/screenshots/2-%20view%20all%20role.png)
+**View All Department**
+![View All Department Screenshot.](./assets/screenshots/1-%20view%20all%20department.png)
 
-![View All Employees Screenshots can be found here.](./assets/screenshots/3-%20view%20all%20employees.png)
+<br>
+
+**View All Roles**
+![View All Roles Screenshot.](./assets/screenshots/2-%20view%20all%20role.png)
+
+<br>
+
+**View All Employees**
+![View All Employees Screenshot.](./assets/screenshots/3-%20view%20all%20employees.png)
+
+<br>
+
+**Add A Department**
+![Add A Department Screenshot.](./assets/screenshots/4-add%20a%20department.png)
+
+<br>
+
+**Add A Role**
+![Add A Role Screenshot.](./assets/screenshots/5-add%20a%20role.png)
+
+<br>
+
+**Add An Employee**
+![Add An Employee Screenshot.](./assets/screenshots/6-add%20an%20employee.png)
 
 ---
 
-## Required to submit the following URL for review:
 
 ## Deployed URL:
 

@@ -158,25 +158,25 @@ function addEmployee() {
   inquirer
     .prompt([
       {
-        name: "newName",
+        name: "first_name",
         type: "input",
-        message: "Please enter the new employee's name!",
+        message: "Please enter the new employee's first name!",
       },
       {
-        name: "newSalary",
+        name: "last_name",
         type: "input",
-        message: "Please enter the salary of new role!",
+        message: "Please enter the new employee's last name!",
       },
       {
-        name: "newID",
+        name: "role_id",
         type: "input",
         message: "Please enter the department ID!",
       },
     ])
     .then((answers) => {
       db.query(
-        "INSERT INTO role (title, salary, department_id) VALUES (?,?,?)",
-        [answers.newName, answers.newSalary, answers.newID],
+        "INSERT INTO employee (first_name, last_name, role_id) VALUES (?,?,?)",
+        [answers.first_name, answers.last_name, answers.role_id],
         function (err, results) {
           console.table(results);
           startAPP();
@@ -186,30 +186,33 @@ function addEmployee() {
     });
 }
 
-// Update Data in Table
+// Update an Employee's Role
 function updateRole() {
   inquirer
     .prompt([
       {
-        name: "newRole",
-        type: "input",
-        message: "Please enter the name of updated role!",
+        name: "roleUpdate",
+        type: "list",
+        message: "Please enter the new title of the employee!",
+        choices: roles,
       },
       {
-        name: "newSalary",
-        type: "input",
-        message: "Please enter the updated salary of new role!",
-      },
-      {
-        name: "newID",
-        type: "input",
-        message: "Please enter the updated department ID!",
+        name: "idUpdate",
+        type: "list",
+        choices: function () {
+          var roleArray = [];
+          for (i = 0; i < answers.length; i++) {
+            roleArray.push(answer[i].role_id);
+          }
+          return roleArray;
+        },
+        message: "Please enter the updated ID of the employee!",
       },
     ])
     .then((answers) => {
       db.query(
-        "INSERT INTO role (",
-        [answers.title, answers.salary, answers.department_id],
+        "UPDATE employee SET ? WHERE employee_id=?",
+        [answers.roleUpdate, answers.idUpdate],
         function (err, results) {
           console.table(results);
           startAPP();
