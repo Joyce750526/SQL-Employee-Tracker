@@ -21,6 +21,18 @@ const db = mysql.createConnection(
   console.log(`Connected to the department_db database.`)
 );
 
+const queryPromise = (statement, params) => {
+  return new Promise((resolve, reject) => {
+    db.query(statement, params, (err, result) => {
+      if (err) {
+        return reject(err);
+      }
+
+      return resolve(result);
+    });
+  });
+}
+
 function startAPP() {
   inquirer
     .prompt([
@@ -194,12 +206,17 @@ function updateRole() {
         name: "roleUpdate",
         type: "list",
         message: "Please enter the new title of the employee!",
-        choices: roles,
+        choices: async function () {
+          const results = await queryPromise("SELECT * FROM role");
+          return results;
+        },
+        select movies.name AS name, movies.id AS value from movies WHERE name LIKE ?
       },
       {
         name: "idUpdate",
         type: "list",
         choices: function () {
+          ["sales Lead", "Back-End Engineer", "Office Manager", "Director"];
           var roleArray = [];
           for (i = 0; i < answers.length; i++) {
             roleArray.push(answer[i].role_id);
