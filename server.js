@@ -207,23 +207,20 @@ function updateRole() {
         type: "list",
         message: "Please enter the new title of the employee!",
         choices: async function () {
-          const results = await queryPromise("SELECT * FROM role");
+          const results = await queryPromise("SELECT id AS value, title AS name FROM role");
           return results;
         },
-        select movies.name AS name, movies.id AS value from movies WHERE name LIKE ?
+        
       },
       {
         name: "idUpdate",
         type: "list",
-        choices: function () {
-          ["sales Lead", "Back-End Engineer", "Office Manager", "Director"];
-          var roleArray = [];
-          for (i = 0; i < answers.length; i++) {
-            roleArray.push(answer[i].role_id);
-          }
-          return roleArray;
-        },
         message: "Please enter the updated ID of the employee!",
+        choices: async function () {
+          const results = await queryPromise("SELECT id AS value, title AS name FROM role");
+          return results;
+        },
+        
       },
     ])
     .then((answers) => {

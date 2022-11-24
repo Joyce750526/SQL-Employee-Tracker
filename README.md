@@ -64,17 +64,17 @@ To use this Back-end application. Please refer the following steps.
 <br>
 
 **View All Department**
-![View All Department Screenshot.](./assets/screenshots/1-%20view%20all%20department.png)
+![View All Department Screenshot.](./Assets/screenshots/1-%20view%20all%20department.png)
 
 <br>
 
 **View All Roles**
-![View All Roles Screenshot.](./assets/screenshots/2-%20view%20all%20role.png)
+![View All Roles Screenshot.](./Assets/screenshots/2-%20view%20all%20role.png)
 
 <br>
 
 **View All Employees**
-![View All Employees Screenshot.](./assets/screenshots/3-%20view%20all%20employees.png)
+![View All Employees Screenshot.](./Assets/screenshots/3-%20view%20all%20employees.png)
 
 <br>
 
@@ -84,12 +84,12 @@ To use this Back-end application. Please refer the following steps.
 <br>
 
 **Add A Role**
-![Add A Role Screenshot.](./assets/screenshots/5-add%20a%20role.png)
+![Add A Role Screenshot.](./Assets/screenshots/5-add%20a%20role.png)
 
 <br>
 
 **Add An Employee**
-![Add An Employee Screenshot.](./assets/screenshots/6-add%20an%20employee.png)
+![Add An Employee Screenshot.](./Assets/screenshots/6-add%20an%20employee.png)
 
 ---
 
