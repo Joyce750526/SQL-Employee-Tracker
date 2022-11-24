@@ -48,6 +48,7 @@ function startAPP() {
           "Add a role",
           "Add an employee",
           "Update an employee role",
+          "Update an employee manager",
           "Finished",
         ],
       },
@@ -68,6 +69,8 @@ function startAPP() {
         addEmployee();
       } else if (response.userChoice === "Update an employee role") {
         updateRole();
+      } else if (response.userChoice === "Update an employee manager") {
+        updateEmployeeManager();
       } else {
         finished();
       }
@@ -252,25 +255,60 @@ function updateRole() {
         name: "role_id",
         type: "number",
         message:
-          "Please enter the new role id associated with the employee you want to update!",
+          "Please enter the new role ID of the employee you like to update!",
       },
     ])
     .then(function (answers) {
       db.query(
         "UPDATE employee SET role_id = ? WHERE first_name = ?",
         [answers.role_id, answers.first_name],
-        function (err, data) {
+        function (err, results) {
           if (err) throw err;
           console.log("results");
 
-          db.query(`SELECT * FROM employee`, (err, result) => {
-            if (err) {
-              startAPP();
-            }
-            console.table(result);
+          db.query(`SELECT * FROM employee`, (err, results) => {
+            if (err) throw err;
+            console.table(results);
             startAPP();
           });
         }
       );
     });
+}
+
+// Update Employee Manager ID
+function updateEmployeeManager() {
+  inquirer
+    .prompt([
+      {
+        name: "first_name",
+        type: "input",
+        message:
+          "Please enter the first name of the employee you like to update!",
+      },
+      {
+        name: "manager_id",
+        type: "number",
+        message:
+          "Please enter the new manager's ID of the employee you like to update!",
+      },
+    ])
+    .then(function (answers) {
+      db.query(
+        "UPDATE employee SET manager_id = ? WHERE first_name = ?",
+        [answers.manager_id, answers.first_name],
+        function (err, results) {
+          if (err) throw err;
+          db.query(`SELECT * FROM employee`, (err, results) => {
+            if (err) throw err;
+            console.table(results);
+            startAPP();
+          });
+        }
+      );
+    });
+}
+
+function finished() {
+  return startAPP();
 }
