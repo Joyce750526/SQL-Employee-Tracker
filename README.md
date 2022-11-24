@@ -52,14 +52,14 @@ To use this Back-end application. Please refer the following steps.
 
 ## Demo Video:
 
-![SQL Employee Tracker Walkthrough Video can be found here.](./assets/video/SQL-%20Employee%20Tracker%20Walkthrough%20Video.gif)
+![SQL Employee Tracker Walkthrough Video can be found here.](./Assets/video/SQL-%20Employee%20Tracker%20Walkthrough%20Video.gif)
 
 ---
 ## Screenshots:
 <br>
 
 **Get Started Window in the Terminal**
-![Get Started Window Screenshot.](./assets/screenshots/0-get%20started%20window.png)
+![Get Started Window Screenshot.](./Assets/screenshots/0-get%20started%20window.png)
 
 <br>
 
@@ -79,7 +79,7 @@ To use this Back-end application. Please refer the following steps.
 <br>
 
 **Add A Department**
-![Add A Department Screenshot.](./assets/screenshots/4-add%20a%20department.png)
+![Add A Department Screenshot.](./Assets/screenshots/4-add%20a%20department.png)
 
 <br>
 
