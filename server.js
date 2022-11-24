@@ -21,17 +21,17 @@ const db = mysql.createConnection(
   console.log(`Connected to the department_db database.`)
 );
 
-const queryPromise = (statement, params) => {
-  return new Promise((resolve, reject) => {
-    db.query(statement, params, (err, result) => {
-      if (err) {
-        return reject(err);
-      }
+// const queryPromise = (statement, params) => {
+//   return new Promise((resolve, reject) => {
+//     db.query(statement, params, (err, result) => {
+//       if (err) {
+//         return reject(err);
+//       }
 
-      return resolve(result);
-    });
-  });
-}
+//       return resolve(result);
+//     });
+//   });
+// };
 
 function startAPP() {
   inquirer
@@ -199,38 +199,77 @@ function addEmployee() {
 }
 
 // Update an Employee's Role
+// function updateRole() {
+//   inquirer
+//     .prompt([
+//       {
+//         name: "first_name",
+//         type: "list",
+//         message: "Please enter the new role of the employee!",
+//         choices: async function () {
+//           const results = await queryPromise(
+//             "SELECT id AS value, title AS name FROM role"
+//           );
+//           return results;
+//         },
+//       },
+//       {
+//         name: "role_id",
+//         type: "list",
+//         message: "Please enter the new title of the employee!",
+//         choices: async function () {
+//           const results = await queryPromise(
+//             "SELECT id AS value, title AS name FROM role"
+//           );
+//           return results;
+//         },
+//       },
+//     ])
+//     .then((answers) => {
+//       db.query(
+//         "UPDATE employee SET role_id=? WHERE first_name=?",
+//         [answers.roleUpdate, answers.idUpdate],
+//         function (err, results) {
+//           console.table(results);
+//           startAPP();
+//           if (err) throw err;
+//         }
+//       );
+//     });
+// }
+
+// Update employee role
 function updateRole() {
   inquirer
     .prompt([
       {
-        name: "roleUpdate",
-        type: "list",
-        message: "Please enter the new title of the employee!",
-        choices: async function () {
-          const results = await queryPromise("SELECT id AS value, title AS name FROM role");
-          return results;
-        },
-        
+        name: "first_name",
+        type: "input",
+        message:
+          "Please enter the first name of the employee you like to update!",
       },
       {
-        name: "idUpdate",
-        type: "list",
-        message: "Please enter the updated ID of the employee!",
-        choices: async function () {
-          const results = await queryPromise("SELECT id AS value, title AS name FROM role");
-          return results;
-        },
-        
+        name: "role_id",
+        type: "number",
+        message:
+          "Please enter the new role id associated with the employee you want to update!",
       },
     ])
-    .then((answers) => {
+    .then(function (answers) {
       db.query(
-        "UPDATE employee SET ? WHERE employee_id=?",
-        [answers.roleUpdate, answers.idUpdate],
-        function (err, results) {
-          console.table(results);
-          startAPP();
+        "UPDATE employee SET role_id = ? WHERE first_name = ?",
+        [answers.role_id, answers.first_name],
+        function (err, data) {
           if (err) throw err;
+          console.log("results");
+
+          db.query(`SELECT * FROM employee`, (err, result) => {
+            if (err) {
+              startAPP();
+            }
+            console.table(result);
+            startAPP();
+          });
         }
       );
     });
