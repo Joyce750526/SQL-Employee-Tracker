@@ -310,5 +310,5 @@ function updateEmployeeManager() {
 }
 
 function finished() {
-  return startAPP();
+  process.exit()
 }
